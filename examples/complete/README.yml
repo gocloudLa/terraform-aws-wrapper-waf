@@ -1,0 +1,8 @@
+title: "Complete Example"
+description: "This example demonstrates the configuration of a WAF (Web Application Firewall) using Terraform with AWS services. It includes setting up a WAF with specific rules and parameters, and managing IP sets for whitelists."
+main_purpose: "The main purpose is to configure a WAF with specific rules and manage IP sets for whitelists in AWS."
+key_features:
+  - "**Aws Managed Rules**: Implements AWS managed rules for common threats."
+  - "**Cloudfront Scope**: Configures the WAF to work with CloudFront."
+  - "**Ip Whitelist**: Manages a whitelist of IP addresses for CloudFront."
+  - "**Logging Configuration**: Provides options to enable or disable logging for WAF events."

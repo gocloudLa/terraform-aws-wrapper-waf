@@ -1,0 +1,47 @@
+module_name: Terraform WAF Module
+module_description: The Terraform wrapper for WAF simplifies the configuration of the Web Application Firewall in the AWS cloud. This wrapper functions as a predefined template, facilitating the creation and management of WAF by handling all the technical details.
+module_badges:
+  - url: "https://github.com/gocloudLa/terraform-aws-wrapper-waf/releases/latest"
+    image: "https://img.shields.io/github/v/release/gocloudLa/terraform-aws-wrapper-waf.svg?style=for-the-badge"
+    alt: "Latest Release"
+  - url: ""
+    image: "https://img.shields.io/github/last-commit/gocloudLa/terraform-aws-wrapper-waf.svg?style=for-the-badge"
+    alt: "Last Commit"
+  - url: "https://registry.terraform.io/modules/gocloudLa/wrapper-waf/aws"
+    image: "https://img.shields.io/badge/Terraform-Registry-7B42BC?style=for-the-badge&logo=terraform&logoColor=white"
+    alt: "Terraform Registry"
+quick_start: |
+  ```hcl
+  waf_parameters = {
+          "exSimple" = {
+              logging_enable = false
+              rules = [
+                {
+                  name                = "AWSManagedRulesCommonRuleSet-rule-1"
+                  priority            = "10"
+                  override_action     = "none"
+                  visibility_config   = {
+                      metric_name     = "AWSManagedRulesCommonRuleSet-metric"
+                  }
+                  managed_rule_group_statement = {
+                    name              = "AWSManagedRulesCommonRuleSet" //WCU 700
+                    vendor_name       = "AWS"
+                  }
+                }
+              ]
+          }
+      }
+  ```
+features: []
+important_notes: ""
+input_table: |
+  | logging_enable | Whether Route53 zone is private or public | `bool` | `false` | no |
+  | enabled | List of objects of DNS records | `bool` | `true` | no |
+  | scope | Set the scope of a resource | `string` | `REGIONAL` | no |
+  | create_alb_association | Create association to ALB | `bool` | `false` | no |
+  | alb_arn | Specify the ALB ARN | `string` | ` ` | no |
+  | allow_default_action | Specify list of ALB ARNs | `null` | `[]` | no |
+  | rules | Define the rules for the resource | `null` | `[{ name = "disabled" }]` | no |
+  | create_logging_configuration | Create a log configuration | `bool` | `false` | no |
+  | log_destination_configs | Define destination settings for logs | `null` | `[]` | no |
+  | logging_filter | Apply a log filter | `string` | `local.logging_filter_default` | no |
