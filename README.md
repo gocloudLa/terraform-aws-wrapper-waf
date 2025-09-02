@@ -41,6 +41,20 @@ waf_parameters = {
 
 
 
+## 📑 Inputs
+| Name                         | Description                               | Type     | Default                        | Required |
+| ---------------------------- | ----------------------------------------- | -------- | ------------------------------ | -------- |
+| logging_enable               | Whether Route53 zone is private or public | `bool`   | `false`                        | no       |
+| enabled                      | List of objects of DNS records            | `bool`   | `true`                         | no       |
+| scope                        | Set the scope of a resource               | `string` | `REGIONAL`                     | no       |
+| create_alb_association       | Create association to ALB                 | `bool`   | `false`                        | no       |
+| alb_arn                      | Specify the ALB ARN                       | `string` | ` `                            | no       |
+| allow_default_action         | Specify list of ALB ARNs                  | `null`   | `[]`                           | no       |
+| rules                        | Define the rules for the resource         | `null`   | `[{ name = "disabled" }]`      | no       |
+| create_logging_configuration | Create a log configuration                | `bool`   | `false`                        | no       |
+| log_destination_configs      | Define destination settings for logs      | `null`   | `[]`                           | no       |
+| logging_filter               | Apply a log filter                        | `string` | `local.logging_filter_default` | no       |
+
 
 
 
