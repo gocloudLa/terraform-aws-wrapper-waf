@@ -4,5 +4,5 @@ main_purpose: "The main purpose is to configure a WAF with specific rules and ma
 key_features:
   - "**Aws Managed Rules**: Implements AWS managed rules for common threats."
   - "**Cloudfront Scope**: Configures the WAF to work with CloudFront."
-  - "**Ip Whitelist**: Manages a whitelist of IP addresses for CloudFront."
+  - "**IP Whitelist**: Manages a whitelist of IP addresses for CloudFront."
   - "**Logging Configuration**: Provides options to enable or disable logging for WAF events."
