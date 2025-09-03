@@ -12,7 +12,7 @@ The main purpose is to configure a WAF with specific rules and manage IP sets fo
 #### Key Features Demonstrated
 - **Aws Managed Rules**: Implements AWS managed rules for common threats.
 - **Cloudfront Scope**: Configures the WAF to work with CloudFront.
-- **Ip Whitelist**: Manages a whitelist of IP addresses for CloudFront.
+- **IP Whitelist**: Manages a whitelist of IP addresses for CloudFront.
 - **Logging Configuration**: Provides options to enable or disable logging for WAF events.
 
 ## 🚀 Quick Start

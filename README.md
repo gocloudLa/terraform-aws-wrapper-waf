@@ -42,23 +42,28 @@ waf_parameters = {
 
 
 ## 📑 Inputs
-| Name                         | Description                               | Type     | Default                        | Required |
-| ---------------------------- | ----------------------------------------- | -------- | ------------------------------ | -------- |
-| logging_enable               | Whether Route53 zone is private or public | `bool`   | `false`                        | no       |
-| enabled                      | List of objects of DNS records            | `bool`   | `true`                         | no       |
-| scope                        | Set the scope of a resource               | `string` | `REGIONAL`                     | no       |
-| create_alb_association       | Create association to ALB                 | `bool`   | `false`                        | no       |
-| alb_arn                      | Specify the ALB ARN                       | `string` | ` `                            | no       |
-| allow_default_action         | Specify list of ALB ARNs                  | `null`   | `[]`                           | no       |
-| rules                        | Define the rules for the resource         | `null`   | `[{ name = "disabled" }]`      | no       |
-| create_logging_configuration | Create a log configuration                | `bool`   | `false`                        | no       |
-| log_destination_configs      | Define destination settings for logs      | `null`   | `[]`                           | no       |
-| logging_filter               | Apply a log filter                        | `string` | `local.logging_filter_default` | no       |
+| Name                   | Description                                          | Type     | Default                                                    | Required |
+| ---------------------- | ---------------------------------------------------- | -------- | ---------------------------------------------------------- | -------- |
+| scope                  | Set the scope of a resource (REGIONAL or CLOUDFRONT) | `string` | `REGIONAL`                                                 | no       |
+| enabled                | Whether the WAF WebACL is enabled                    | `bool`   | `true`                                                     | no       |
+| create_alb_association | Create association to ALB                            | `bool`   | `false`                                                    | no       |
+| alb_arn                | Specify the ALB ARN for association                  | `string` | `""`                                                       | no       |
+| alb_arn_list           | List of ALB ARNs for association                     | `list`   | `[]`                                                       | no       |
+| allow_default_action   | Whether to allow requests by default                 | `bool`   | `true`                                                     | no       |
+| visibility_config      | Configuration for CloudWatch metrics and sampling    | `map`    | ```{ metric_name = "${local.common_name}-${each.key}" }``` | no       |
+| rules                  | Define the rules for the WAF WebACL                  | `list`   | `[{ name = "disabled" }]`                                  | no       |
+| logging_enable         | Enable WAF logging to CloudWatch                     | `bool`   | `false`                                                    | no       |
+| waf_logging_filter     | Apply a log filter to WAF logs                       | `map`    | `local.logging_filter_default`                             | no       |
+| logging_retention      | CloudWatch log group retention in days               | `number` | `7`                                                        | no       |
 
 
 
 
 
+
+
+## ⚠️ Important Notes
+- **⚠️ Scope Configuration:** Use `REGIONAL` for ALB associations and `CLOUDFRONT` for CloudFront distributions
 
 
 
