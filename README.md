@@ -55,6 +55,7 @@ waf_parameters = {
 | logging_enable         | Enable WAF logging to CloudWatch                     | `bool`   | `false`                                                    | no       |
 | waf_logging_filter     | Apply a log filter to WAF logs                       | `map`    | `local.logging_filter_default`                             | no       |
 | logging_retention      | CloudWatch log group retention in days               | `number` | `7`                                                        | no       |
+| tags                   | A map of tags to assign to resources.                | `map`    | `{}`                                                       | no       |
 
 
 
