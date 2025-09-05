@@ -22,7 +22,7 @@ module "waf" {
   log_destination_configs      = try([aws_cloudwatch_log_group.this[each.key].arn], [])
   logging_filter               = try(each.value.waf_logging_filter, local.logging_filter_default)
 
-  tags = local.common_tags
+  tags = merge(local.common_tags, try(each.value.tags, var.waf_defaults.tags, null))
 }
 
 module "waf_secondary" {
@@ -46,7 +46,7 @@ module "waf_secondary" {
   log_destination_configs      = try([aws_cloudwatch_log_group.this[each.key].arn], [])
   logging_filter               = try(each.value.waf_logging_filter, local.logging_filter_default)
 
-  tags = local.common_tags
+  tags = merge(local.common_tags, try(each.value.tags, var.waf_defaults.tags, null))
 
   providers = {
     aws = aws.use1
