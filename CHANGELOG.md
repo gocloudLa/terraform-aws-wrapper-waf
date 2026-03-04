@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/gocloudLa/terraform-aws-wrapper-waf/compare/v1.0.0...v1.0.1) (2026-03-04)
+
+
+### Bug Fixes
+
+* **data:** aws_region warning ([#3](https://github.com/gocloudLa/terraform-aws-wrapper-waf/issues/3)) ([129b5bc](https://github.com/gocloudLa/terraform-aws-wrapper-waf/commit/129b5bc943c7a04666c6f3dee08516755293c65d))
+
 ## 1.0.0 (2025-09-05)
 
 
