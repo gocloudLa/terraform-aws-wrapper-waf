@@ -37,7 +37,7 @@ data "aws_iam_policy_document" "this" {
     resources = ["${aws_cloudwatch_log_group.this[each.key].arn}:*"]
     condition {
       test     = "ArnLike"
-      values   = ["arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:*"]
+      values   = ["arn:aws:logs:${data.aws_region.current.id}:${data.aws_caller_identity.current.account_id}:*"]
       variable = "aws:SourceArn"
     }
     condition {
